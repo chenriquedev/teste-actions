@@ -1,0 +1,23 @@
+name: Deploy Homelab
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Build da imagem
+        run: docker compose build
+
+      - name: Parar container antigo
+        run: docker compose down
+
+      - name: Subir nova versão
+        run: docker compose up -d
+
