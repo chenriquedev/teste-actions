@@ -9,15 +9,14 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
+      - name: Atualizar código
+        run: |
+          cd /apps/finance/testando-github-actions/teste-actions
+          git pull
 
-      - name: Build da imagem
-        run: docker compose build
-
-      - name: Parar container antigo
-        run: docker compose down
-
-      - name: Subir nova versão
-        run: docker compose up -d
+      - name: Subir aplicação
+        run: |
+          cd /apps/finance/testando-github-actions/teste-actions
+          docker compose down || true
+          docker compose up -d --build
 
