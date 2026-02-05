@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Subiu pelo github actions');
+  res.send('Subiu pelo github actions again');
 });
 
 app.listen(3000, () => {

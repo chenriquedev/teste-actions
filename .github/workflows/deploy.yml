@@ -9,14 +9,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Atualizar código
+      - name: Deploy no servidor
         run: |
-          cd /apps/finance/testando-github-actions/teste-actions
+          cd /home/henrique/apps/finance/testando-github-actions/teste-actions
           git pull
-
-      - name: Subir aplicação
-        run: |
-          cd /apps/finance/testando-github-actions/teste-actions
           docker compose down || true
           docker compose up -d --build
 
