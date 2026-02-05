@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Finance Manager rodando no homelab 🚀');
+  res.send('Subiu pelo github actions');
 });
 
 app.listen(3000, () => {
